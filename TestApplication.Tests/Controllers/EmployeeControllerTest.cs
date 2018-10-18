@@ -20,7 +20,7 @@ namespace TestApplication.Tests.Controllers
             {
                 driver = new ChromeDriver(IE_DRIVER_PATH);
 
-                driver.Navigate().GoToUrl("http://localhost:60006/");
+                driver.Navigate().GoToUrl("http://localhost/DemoMVCProject");
 
                 // Find the text input element by its name
                 IWebElement enter = driver.FindElement(By.TagName("a"));
