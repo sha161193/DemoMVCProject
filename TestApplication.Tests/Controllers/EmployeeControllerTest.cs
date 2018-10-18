@@ -1,25 +1,24 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System.Drawing.Imaging;
-
+using NUnit.Framework;
 namespace TestApplication.Tests.Controllers
 {
-    [TestClass]
+    [TestFixture]
     public class EmployeeControllerTest
     {
         private const string IE_DRIVER_PATH = @"E:\SeleniumDriver";
         private const string ScreenShotLocation = @"E:\ScreenShot";
-        [TestMethod]
+        [Test]
         public void Get()
         {
             IWebDriver driver = null;
             try
             {
-                driver = new InternetExplorerDriver(IE_DRIVER_PATH);
+                driver = new ChromeDriver(IE_DRIVER_PATH);
 
                 driver.Navigate().GoToUrl("http://localhost:60006/");
 
@@ -27,8 +26,6 @@ namespace TestApplication.Tests.Controllers
                 IWebElement enter = driver.FindElement(By.TagName("a"));
 
                 enter.Click();
-
-
 
                 TestEmployeeListScreen(driver, "Launch");
 
@@ -50,6 +47,7 @@ namespace TestApplication.Tests.Controllers
                 driver.Quit();
             }
         }
+
 
         private void TestDeleteEmployees(IWebDriver driver)
         {
