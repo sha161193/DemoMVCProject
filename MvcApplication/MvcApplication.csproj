@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -162,6 +164,9 @@
   <ItemGroup>
     <Content Include="Views\Web.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Jenkins.pubxml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -173,12 +178,11 @@
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
   </Target>
   <Target Name="Publish">
-<PropertyGroup>
-  <PublishDirectory>$(PublishDirectory)</PublishDirectory>
-</PropertyGroup>
-
-<!-- publish logic using a copy files task or custom task goes here -->
-</Target>
+    <PropertyGroup>
+      <PublishDirectory>$(PublishDirectory)</PublishDirectory>
+    </PropertyGroup>
+    <!-- publish logic using a copy files task or custom task goes here -->
+  </Target>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
