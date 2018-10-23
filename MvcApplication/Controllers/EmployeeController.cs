@@ -51,5 +51,11 @@ namespace TestApplication.Controllers
         {
             EmployeeStore.EmployeeList.RemoveAll(x => empIds.Contains(x.EmpId));
         }
+
+        [HttpPost]
+        public void DeleteEmployee1(int[] empIds)
+        {
+            EmployeeStore.EmployeeList.RemoveAll(x => empIds.Contains(x.EmpId));
+        }
     }
 }
